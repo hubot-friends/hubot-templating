@@ -1,0 +1,40 @@
+{
+  "name": "@hubot-friends/hubot-templating",
+  "version": "0.0.0-development",
+  "description": "Javascript Server side templating engine with string literals",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "node --test --experimental-vm-modules"
+  },
+  "keywords": [
+    "templating",
+    "engine",
+    "string",
+    "literals",
+    "javascript"
+  ],
+  "author": "Joey Guerra",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hubot-friends/hubot-templating.git"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "release": {
+    "branches": [
+      "main",
+      "next"
+    ],
+    "dryRun": false
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
