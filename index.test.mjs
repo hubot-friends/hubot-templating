@@ -90,4 +90,17 @@ describe('Templating Engine', () => {
         const actual = await template.render()
         assert.equal(actual, expected)
     })
+    it('should output an error message in the console, but not crash', async () => {
+        const data = {
+            time: 'today'
+        }
+        const template = new Template('Hello ${name}! How are you ${time}?', data)
+        const expected = 'Hello John! How are you today?'
+        try {
+            await template.render()
+        } catch (e) {
+            assert.match(e.stack, /result \= /)
+            assert.equal(e.message, 'name is not defined')
+        }
+    })
 })

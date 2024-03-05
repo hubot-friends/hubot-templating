@@ -32,7 +32,15 @@ class Template {
             ...this.functions,
             hasLayout
         })
-        script.runInContext(context)
+        try {
+            script.runInContext(context, {displayErrors: true})
+        } catch (e) {
+            throw e
+        }
+        if (layout) {
+            context.result = context.result?.replace(/^\n/, '')
+            return this.renderWithLayout(this.partials.get(layout), context.result)
+        }
         if (layout) {
             context.result = context.result.replace(/^\n/, '')
             return this.renderWithLayout(this.partials.get(layout), context.result)
